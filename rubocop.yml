@@ -1,0 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+
+Documentation:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  MaxLineLength: 120
