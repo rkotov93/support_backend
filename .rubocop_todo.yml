@@ -16,4 +16,4 @@ Lint/AssignmentInCondition:
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
 # URISchemes: http, https
 Metrics/LineLength:
-  Max: 130
+  Max: 120

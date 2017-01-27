@@ -8,6 +8,3 @@ AllCops:
 
 Documentation:
   Enabled: false
-
-Style/IfUnlessModifier:
-  MaxLineLength: 120
