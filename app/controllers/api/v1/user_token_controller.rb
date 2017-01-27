@@ -8,6 +8,14 @@ module Api
       def entity_name
         'User'
       end
+
+      def auth_token
+        if entity.respond_to? :to_token_payload
+          AuthToken.new payload: entity.to_token_payload
+        else
+          entity
+        end
+      end
     end
   end
 end
