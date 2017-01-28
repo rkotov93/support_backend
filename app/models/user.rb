@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  has_many :tickets
+
   validates :email, email: true, uniqueness: true
   validates :name, presence: true
 end

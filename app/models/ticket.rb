@@ -1,7 +1,10 @@
 class Ticket < ApplicationRecord
   include Workflow
 
-  belongs_to :user
+  validates :title, presence: true, length: { maximum: 255 }
+  validates :description, presence: true
+
+  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
 
   workflow_column :status
   workflow do

@@ -23,8 +23,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Environment variables manager
 gem 'figaro'
 
-# JWT Authorization
+# JWT Authentication
 gem 'knock'
+
+# Authorization
+gem 'pundit'
 
 # JSON serializer
 gem 'active_model_serializers', '~> 0.10.0'

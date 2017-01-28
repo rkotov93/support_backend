@@ -17,6 +17,7 @@ RSpec.describe 'User registration', type: :request do
         expect(response.status).to eq 200
         expect(response.body).to eq({
           user: {
+            id: User.last.id,
             email: new_user.email,
             name: new_user.name,
             jwt: Knock::AuthToken.new(payload: { sub: User.last.id }).token
@@ -53,6 +54,7 @@ RSpec.describe 'User registration', type: :request do
           expect(response.status).to eq 200
           expect(response.body).to eq({
             user: {
+              id: User.last.id,
               email: 'new_email@example.com',
               name: user.name,
               jwt: Knock::AuthToken.new(payload: { sub: User.last.id }).token
@@ -89,7 +91,7 @@ RSpec.describe 'User registration', type: :request do
       before { delete api_v1_registration_path, headers: { authorization: jwt_for(user) } }
 
       it 'deletes user' do
-        expect(response.status).to eq 200
+        expect(response.status).to eq 204
       end
     end
 

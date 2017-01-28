@@ -12,6 +12,7 @@ RSpec.describe 'User authentication', type: :request do
         expect(response.status).to eq 201
         expect(response.body).to eq({
           user: {
+            id: user.id,
             email: user.email,
             name: user.name,
             jwt: Knock::AuthToken.new(payload: { sub: user.id }).token

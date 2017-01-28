@@ -7,7 +7,7 @@ module Api
       def create
         user = User.new(user_params)
         if user.save
-          render json: user, status: :ok
+          render json: user
         else
           render json: user.errors.full_messages, status: :not_acceptable
         end
@@ -15,7 +15,7 @@ module Api
 
       def update
         if current_user.update_attributes(user_params)
-          render json: current_user, status: :ok
+          render json: current_user
         else
           render json: current_user.errors.full_messages, status: :not_acceptable
         end
@@ -23,7 +23,6 @@ module Api
 
       def destroy
         current_user.destroy
-        render status: :ok
       end
 
       private
