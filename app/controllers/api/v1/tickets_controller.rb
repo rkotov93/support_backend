@@ -3,7 +3,7 @@ module Api
   module V1
     class TicketsController < BaseController
       def index
-        render json: policy_scope(Ticket)
+        render json: policy_scope(Ticket).page(params[:page] || 1)
       end
 
       def show
