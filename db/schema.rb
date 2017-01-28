@@ -13,12 +13,12 @@
 ActiveRecord::Schema.define(version: 20170127133930) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "role"
+    t.string   "email",                                null: false
+    t.string   "name",                                 null: false
+    t.string   "role",            default: "customer"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.index ["email"], name: "index_users_on_email", using: :btree
   end
 

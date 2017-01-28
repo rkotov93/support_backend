@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe 'User authentication', type: :request do
@@ -9,7 +10,13 @@ RSpec.describe 'User authentication', type: :request do
 
       it 'returns user info with JWT' do
         expect(response.status).to eq 201
-        expect(response.body).to eq UserSerializer.new(user).to_json
+        expect(response.body).to eq({
+          user: {
+            email: user.email,
+            name: user.name,
+            jwt: Knock::AuthToken.new(payload: { sub: user.id }).token
+          }
+        }.to_json)
       end
     end
 

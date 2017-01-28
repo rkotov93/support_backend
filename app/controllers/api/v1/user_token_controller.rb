@@ -9,12 +9,9 @@ module Api
         'User'
       end
 
+      # Response with serialized user instead of token
       def auth_token
-        if entity.respond_to? :to_token_payload
-          AuthToken.new payload: entity.to_token_payload
-        else
-          entity
-        end
+        entity
       end
     end
   end
