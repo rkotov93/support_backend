@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :ticket do
-    title "MyString"
-    description "MyText"
-    user nil
-    status 1
+    title { Faker::Book.title }
+    description { Faker::Lorem.paragraph }
+    user
   end
 end

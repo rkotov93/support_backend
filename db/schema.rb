@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170128130425) do
     t.string   "title"
     t.text     "description", limit: 65535
     t.integer  "user_id"
-    t.integer  "status"
+    t.string   "status"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["user_id"], name: "index_tickets_on_user_id", using: :btree
