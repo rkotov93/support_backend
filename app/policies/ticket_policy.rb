@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class TicketPolicy < ApplicationPolicy
   def show?
     record.author == user || user.support? || user.admin?

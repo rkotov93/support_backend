@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class TicketSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :author
 

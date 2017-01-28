@@ -21,9 +21,7 @@ module Api
         end
       end
 
-      def destroy
-        current_user.destroy
-      end
+      delegate :destroy, to: :current_user
 
       private
 
