@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 def user_hash(user)
   {
     id: user.id,

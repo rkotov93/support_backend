@@ -14,7 +14,7 @@ RSpec.describe 'Users', type: :request do
       it 'returns users list' do
         expect(response.status).to eq 200
         expect(response.body).to eq({
-            users: [user_hash(user1), user_hash(user2)]
+          users: [user_hash(user1), user_hash(user2)]
         }.to_json)
       end
     end

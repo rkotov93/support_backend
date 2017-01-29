@@ -204,8 +204,6 @@ RSpec.describe 'Tickets', type: :request do
         end
       end
     end
-
-
   end
 
   def ticket_hash(ticket)
