@@ -12,6 +12,15 @@ module Api
       def user_not_authorized
         render status: :unauthorized
       end
+
+      # Pagination meta for serialization
+      def pagination_dict(collection)
+        {
+          current_page: collection.current_page,
+          total_pages: collection.total_pages,
+          total_count: collection.count
+        }
+      end
     end
   end
 end

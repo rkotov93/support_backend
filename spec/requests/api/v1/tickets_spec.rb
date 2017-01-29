@@ -22,7 +22,10 @@ RSpec.describe 'Tickets', type: :request do
 
       it 'returns only user\'s tickets' do
         expect(response.status).to eq 200
-        expect(response.body).to eq({ tickets: [ticket_hash(user_ticket)] }.to_json)
+        expect(response.body).to eq({
+          tickets: [ticket_hash(user_ticket)],
+          meta: { current_page: 1, total_pages: 1, total_count: 1 }
+        }.to_json)
       end
     end
 
@@ -36,7 +39,8 @@ RSpec.describe 'Tickets', type: :request do
         it 'returns all tickets' do
           expect(response.status).to eq 200
           expect(response.body).to eq({
-            tickets: [ticket_hash(user_ticket), ticket_hash(another_ticket)]
+            tickets: [ticket_hash(user_ticket), ticket_hash(another_ticket)],
+            meta: { current_page: 1, total_pages: 1, total_count: 2 }
           }.to_json)
         end
       end

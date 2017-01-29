@@ -5,7 +5,8 @@ module Api
       before_action :authorize_admin!
 
       def index
-        render json: User.without(current_user).page(params[:page] || 1)
+        users = User.without(current_user).page(params[:page] || 1)
+        render json: users, meta: pagination_dict(users)
       end
 
       def destroy
