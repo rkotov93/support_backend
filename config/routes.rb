@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
       resources :tickets do
         post :change_status, on: :member
+        resources :comments, only: [:index, :create, :destroy]
       end
 
       resources :users do

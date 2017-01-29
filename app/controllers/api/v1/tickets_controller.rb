@@ -3,7 +3,7 @@ module Api
   module V1
     class TicketsController < BaseController
       def index
-        tickets = policy_scope(Ticket).page(params[:page] || 1)
+        tickets = policy_scope(Ticket).includes(:author).page(params[:page] || 1)
         render json: tickets, meta: pagination_dict(tickets)
       end
 
