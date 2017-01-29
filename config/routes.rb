@@ -5,7 +5,9 @@ Rails.application.routes.draw do
       resource :registration, only: [:create, :update, :destroy]
       post 'user_token' => 'user_token#create'
 
-      resources :tickets
+      resources :tickets do
+        post :change_status, on: :member
+      end
     end
   end
 end

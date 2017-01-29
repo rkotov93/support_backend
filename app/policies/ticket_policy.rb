@@ -16,6 +16,10 @@ class TicketPolicy < ApplicationPolicy
     record.author == user
   end
 
+  def change_status?
+    user.support? || user.admin?
+  end
+
   class Scope < Scope
     def resolve
       if user.support? || user.admin?

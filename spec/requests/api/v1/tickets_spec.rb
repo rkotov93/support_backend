@@ -164,11 +164,56 @@ RSpec.describe 'Tickets', type: :request do
     end
   end
 
+  describe 'POST /tickets/:id/change_status' do
+    context 'as customer user' do
+      before do
+        post change_status_api_v1_ticket_path(user_ticket), headers: { authorization: jwt_for(user) },
+                                                            params: { event: 'start' }
+      end
+
+      it_behaves_like 'authentication error'
+    end
+
+    %w(support admin).each do |role|
+      context "as #{role} user" do
+        before { user.public_send("#{role}!") }
+        context 'with existing event' do
+          before do
+            post change_status_api_v1_ticket_path(user_ticket), headers: { authorization: jwt_for(user) },
+                                                                params: { event: 'start' }
+          end
+
+          it 'returns ticket with new status' do
+            expect(response.status).to eq 200
+            hash = ticket_hash(user_ticket)
+            hash[:status] = 'in_progress'
+            expect(response.body).to eq({ ticket: hash }.to_json)
+          end
+        end
+
+        context 'with nonexistent event' do
+          before do
+            post change_status_api_v1_ticket_path(user_ticket), headers: { authorization: jwt_for(user) },
+                                                                params: { event: 'non_existent' }
+          end
+
+          it 'return ticket without changes' do
+            expect(response.status).to eq 200
+            expect(response.body).to eq({ ticket: ticket_hash(user_ticket) }.to_json)
+          end
+        end
+      end
+    end
+
+
+  end
+
   def ticket_hash(ticket)
     {
       id: ticket.id,
       title: ticket.title,
       description: ticket.description,
+      status: ticket.status,
       author: {
         name: ticket.author.name,
         email: ticket.author.email

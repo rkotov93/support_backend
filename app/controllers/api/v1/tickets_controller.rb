@@ -38,6 +38,14 @@ module Api
         ticket.destroy
       end
 
+      def change_status
+        ticket = Ticket.find(params[:id])
+        authorize ticket
+        event = ticket.current_state.events.keys.map(&:to_s).find { |e| e == params[:event] }
+        ticket.public_send("#{event}!") if event
+        render json: ticket
+      end
+
       private
 
       def ticket_params

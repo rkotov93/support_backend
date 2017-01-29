@@ -51,6 +51,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-rails'
+  gem 'brakeman'
 end
 
 group :development do
