@@ -15,14 +15,7 @@ RSpec.describe 'User registration', type: :request do
 
       it 'returns created user with JWT' do
         expect(response.status).to eq 200
-        expect(response.body).to eq({
-          user: {
-            id: User.last.id,
-            email: new_user.email,
-            name: new_user.name,
-            jwt: Knock::AuthToken.new(payload: { sub: User.last.id }).token
-          }
-        }.to_json)
+        expect(response.body).to eq({ user: user_hash(User.last) }.to_json)
       end
     end
 
@@ -52,14 +45,7 @@ RSpec.describe 'User registration', type: :request do
 
         it 'returns updated user' do
           expect(response.status).to eq 200
-          expect(response.body).to eq({
-            user: {
-              id: User.last.id,
-              email: 'new_email@example.com',
-              name: user.name,
-              jwt: Knock::AuthToken.new(payload: { sub: User.last.id }).token
-            }
-          }.to_json)
+          expect(response.body).to eq({ user: user_hash(User.last) }.to_json)
         end
       end
 

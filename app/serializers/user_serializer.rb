@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :name, :jwt
+  attributes :id, :email, :name, :role, :jwt
 
   def jwt
     if object.respond_to? :to_token_payload

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       resources :tickets do
         post :change_status, on: :member
       end
+
+      resources :users do
+        post :change_role, on: :member
+      end
     end
   end
 end

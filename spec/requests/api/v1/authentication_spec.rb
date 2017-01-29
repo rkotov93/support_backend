@@ -15,6 +15,7 @@ RSpec.describe 'User authentication', type: :request do
             id: user.id,
             email: user.email,
             name: user.name,
+            role: user.role,
             jwt: Knock::AuthToken.new(payload: { sub: user.id }).token
           }
         }.to_json)
