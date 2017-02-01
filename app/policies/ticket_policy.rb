@@ -13,7 +13,7 @@ class TicketPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.author == user
+    record.author == user || user.admin?
   end
 
   def change_status?
