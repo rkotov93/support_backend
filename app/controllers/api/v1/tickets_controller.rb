@@ -7,6 +7,11 @@ module Api
         render json: tickets, meta: pagination_dict(tickets)
       end
 
+      def active
+        tickets = policy_scope(Ticket).active.order(created_at: :desc).includes(:author).page(params[:page] || 1)
+        render json: tickets, meta: pagination_dict(tickets)
+      end
+
       def show
         ticket = Ticket.find(params[:id])
         authorize ticket

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post 'user_token' => 'user_token#create'
 
       resources :tickets do
+        get :active, on: :collection
         post :change_status, on: :member
         resources :comments, only: [:index, :create, :destroy]
       end
