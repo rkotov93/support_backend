@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       end
 
       resources :users do
+        get :me, on: :collection
         post :change_role, on: :member
       end
     end
