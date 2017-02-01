@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
+  acts_as_paranoid
+
   enum role: [:customer, :support, :admin]
 
   has_secure_password
