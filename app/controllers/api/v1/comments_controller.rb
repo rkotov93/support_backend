@@ -5,7 +5,7 @@ module Api
       def index
         ticket = Ticket.find(params[:ticket_id])
         authorize ticket, :show?
-        comments = ticket.comments.order(updated_at: :desc).includes(:author).page(params[:page] || 1)
+        comments = ticket.comments.order(created_at: :desc).includes(:author).page(params[:page] || 1)
         render json: comments, meta: pagination_dict(comments)
       end
 
