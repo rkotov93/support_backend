@@ -44,6 +44,13 @@ gem 'will_paginate', '~> 3.1.0'
 # Store deleted rcords
 gem 'paranoia', '~> 2.2'
 
+# Files management
+gem 'carrierwave', '~> 1.0'
+
+# PDF generator
+gem 'prawn'
+gem 'prawn-table'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

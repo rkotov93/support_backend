@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
   acts_as_paranoid
+  mount_uploader :pdf_report, PdfReportUploader
 
   enum role: [:customer, :support, :admin]
 

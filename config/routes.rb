@@ -15,6 +15,11 @@ Rails.application.routes.draw do
         get :me, on: :collection
         post :change_role, on: :member
       end
+
+      namespace :pdf_reports do
+        post :generate
+        get :info
+      end
     end
   end
 end
