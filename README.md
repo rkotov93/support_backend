@@ -20,7 +20,7 @@ DATABASE PREPARATION
   GRANT ALL PRIVILEGES ON support_backend_test.* TO 'support_backend_user'@'localhost';
   ```
   
-LAUNCHING
+BOOTSTRAPPING
 --
 
 **Do the following steps**
