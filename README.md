@@ -1,24 +1,31 @@
-# README
+REQUIREMENTS
+--
+* ruby 2.3.1
+* MySql 5.7.15
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+DATABASE PREPARATION
+--
 
-* Ruby version
+**Create DB user:**
 
-* System dependencies
+* Login to mysql console with your super user using next command
 
-* Configuration
+  `mysql -u *super_user_name* -p`
+* Then create database user with following commands
 
-* Database creation
+  ```SQL
+  CREATE USER 'support_backend_user'@'localhost' IDENTIFIED BY 'support_backend_password';
+  GRANT ALL PRIVILEGES ON support_backend_development.* TO 'support_backend_user'@'localhost';
+  GRANT ALL PRIVILEGES ON support_backend_test.* TO 'support_backend_user'@'localhost';
+  ```
+  
+LAUNCHING
+--
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Do the following steps**
+* bundle
+* rake db:create
+* rake db:migrate
+* rake db:seed
+* rails s
