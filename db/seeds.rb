@@ -7,7 +7,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-FactoryGirl.create(:user, role: 'admin', email: 'admin@crossover.com', password: 'qweasd')
+FactoryGirl.create(:user, role: 'admin', email: 'admin@example.com', password: 'qweasd')
 
 2.times.each do
   FactoryGirl.create(:user, role: 'support')
