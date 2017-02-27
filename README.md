@@ -1,3 +1,7 @@
+Support Backend
+--
+Testing Ruby on Rails 5 JSON API for [support_frontend application](https://github.com/rkotov93/support_frontend)
+
 REQUIREMENTS
 --
 * ruby 2.3.1
