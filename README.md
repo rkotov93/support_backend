@@ -1,6 +1,6 @@
-Support Backend
+SUPPORT BACKEND
 --
-Testing Ruby on Rails 5 JSON API for [support_frontend application](https://github.com/rkotov93/support_frontend)
+Testing Ruby on Rails 5 JSON API for [SUPPORT FRONTEND](https://github.com/rkotov93/support_frontend) React + Redux application.
 
 REQUIREMENTS
 --
